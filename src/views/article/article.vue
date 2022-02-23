@@ -10,28 +10,8 @@
             <el-input v-model="input" placeholder="请输入内容" suffix-icon="el-icon-search"></el-input>
           </div>
           <ul class="tag-box">
-            <li class="tag-item">
-              Node
-            </li>
-
-            <li class="tag-item">
-              vue
-            </li>
-
-            <li class="tag-item">
-              小程序
-            </li>
-
-            <li class="tag-item">
-              Js
-            </li>
-
-            <li class="tag-item">
-              移动端
-            </li>
-
-            <li class="tag-item">
-              全部
+            <li class="tag-item" v-for="item in tag" :key="item.id" @click="search(item)">
+              {{item.name}}
             </li>
           </ul>
         </div>
@@ -66,10 +46,27 @@ export default {
   data() {
     return {
       input: "",
+      tag: [],
     };
   },
   components: {
     List,
+  },
+  methods: {
+    search(e) {
+      // alert(23);
+      this.input = e.name;
+    },
+  },
+  created() {
+    this.$request({
+      url: "label",
+      method: "GET",
+    }).then(({ data }) => {
+      console.log(data);
+      this.tag = data.data;
+      console.log(this.tag);
+    });
   },
 };
 </script>
