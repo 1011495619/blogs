@@ -27,13 +27,16 @@
         <!-- </a> -->
       </div>
       <div class="content">
-        <router-link :to="{name:'aticlemd'}">
+        <a href="javascript:;">
           <img :src="article.cover" alt="">
-        </router-link>
-        <router-link to="">{{article.introduction}}</router-link>
+        </a>
+        <!-- <router-link :to="{name:'aticlemd'}">
+          <img :src="article.cover" alt="">
+        </router-link> -->
+        <a href="javascript:;">{{article.introduction}}</a>
       </div>
       <div class="read">
-        <router-link to="">继续阅读</router-link>
+        <a>继续阅读</a>
       </div>
       <div class="footer">
         <icon-font type='icon-biaoqian'></icon-font>

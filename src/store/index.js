@@ -6,11 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    articleList: []
+    articleList: [],
+    queryarticle: {}
   },
   mutations: {
     ARTICLELIST(state, articleList) {
       state.articleList = articleList
+    },
+    QUERYARTICLE(state, articleList) {
+      state.queryarticle = articleList
     }
   },
   actions: {
@@ -27,10 +31,16 @@ export default new Vuex.Store({
 
     // 获取文章内容
 
-    // async queryarticle() {
-    //   let results = await queryarticle()
-    //   console.log(results);
-    // }
+    async queryarticle(context, route) {
+      // console.log(a, b);
+      let results = await queryarticle(route)
+      console.log(results);
+      if (results.status == 200) {
+        context.commit("QUERYARTICLE", results.data.data)
+      } else {
+        alert('错误')
+      }
+    }
   },
   modules: {
   }

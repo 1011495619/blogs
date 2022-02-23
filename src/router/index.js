@@ -34,7 +34,11 @@ const routes = [
   {
     path: '/aticlemd/:id',
     name: 'aticlemd',
-    component: aticlemd
+    component: aticlemd,
+    meta: {
+      keepAlive: true, //此组件需要被缓存
+      isBack: false, //用于判断上一个页面是哪个
+    }
   }
   // {
   //   path: '/about',

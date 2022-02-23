@@ -8,9 +8,13 @@
   justify-content: space-between;
 ">
         <div class="container-left">
-          <!-- 111111111111111111111111111 -->
 
           <ArticleMark></ArticleMark>
+
+          <!-- 111111111111111111111111111 -->
+          <!-- <keep-alive> -->
+
+          <!-- </keep-alive> -->
           <!-- <List v-for="(item) in $store.state.articleList" :key="item.id" :article='item' /> -->
           <!-- <ArticleMark /> -->
         </div>
@@ -36,7 +40,7 @@
 </template>
 
 <script>
-import instance from "../../utils/request";
+// import instance from "../../utils/request";
 import ArticleMark from "../../components/ArticleMark.vue";
 export default {
   data() {

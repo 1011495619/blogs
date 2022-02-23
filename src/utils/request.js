@@ -1,4 +1,8 @@
 import axios from 'axios';
+import nprogress from 'nprogress'
+import "nprogress/nprogress.css"
+
+
 
 const instance = axios.create({
   baseURL: 'http://127.0.0.1:888/api/',
@@ -6,6 +10,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
+  nprogress.start();
   console.log(config);
   return config
 }, error => {
@@ -14,6 +19,9 @@ instance.interceptors.request.use(config => {
 })
 
 instance.interceptors.response.use(function (response) {
+
+  nprogress.done()
+
   // 2xx 范围内的状态码都会触发该函数。
   // 对响应数据做点什么
   return response;
